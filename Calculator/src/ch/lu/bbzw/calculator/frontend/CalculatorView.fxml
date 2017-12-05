@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import ch.lu.bbzw.calculator.frontend.numberpad.NumberPadControll?>
+<?import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadControll?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1">
+	<NumberPadControll></NumberPadControll>
+	<OperationPadControll></OperationPadControll>
+</VBox>
+
