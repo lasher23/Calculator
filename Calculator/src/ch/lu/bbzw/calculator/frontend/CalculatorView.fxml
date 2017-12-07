@@ -5,7 +5,7 @@
 <?import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadControll?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1">
-	<NumberPadControll></NumberPadControll>
-	<OperationPadControll></OperationPadControll>
+	<NumberPadControll fx:id="numberPad"></NumberPadControll>
+	<OperationPadControll fx:id="opoerationPad"></OperationPadControll>
 </VBox>
 
