@@ -7,10 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 public class NumberPadControll extends VBox {
-  private NumberPadController controller;
+  private NumberPadModel model;
 
   public NumberPadControll() {
-    controller = new NumberPadController();
+    NumberPadController controller = new NumberPadController(model);
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("NumberPadView.fxml"));
       loader.setRoot(this);
@@ -21,7 +21,7 @@ public class NumberPadControll extends VBox {
     }
   }
 
-  public NumberPadController getController() {
-    return controller;
+  public NumberPadModel getModel() {
+    return model;
   }
 }

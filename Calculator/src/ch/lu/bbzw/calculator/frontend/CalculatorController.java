@@ -2,10 +2,10 @@
 package ch.lu.bbzw.calculator.frontend;
 
 import ch.lu.bbzw.calculator.frontend.numberpad.NumberPadControll;
-import ch.lu.bbzw.calculator.frontend.numberpad.NumberPadController;
+import ch.lu.bbzw.calculator.frontend.numberpad.NumberPadModel;
 import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadControll;
-import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadController;
-import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadController.Operator;
+import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadModel;
+import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadModel.Operator;
 import ch.lu.bbzw.calculator.operators.FixValue;
 import ch.lu.bbzw.calculator.operators.Operation;
 import javafx.fxml.FXML;
@@ -15,25 +15,24 @@ public class CalculatorController {
   private NumberPadControll numberPad;
   @FXML
   private OperationPadControll operationPad;
-  private OperationPadController operationPadController;
-  private NumberPadController numberPadController;
+  private OperationPadModel operationPadModel;
+  private NumberPadModel numberPadModell;
   private Operation operation;
-  private Operator lastOperator;
 
   public void initialize() {
-    numberPadController = numberPad.getController();
-    operationPadController = operationPad.getController();
-    operationPadController.addOperatorPressedListener(this::operatorPressed);
+    numberPadModell = numberPad.getModel();
+    operationPadModel = operationPad.getModel();
+    operationPadModel.addOperatorChangeListener(this::operatorChanged);
   }
 
   public Operation getLastOperation() {
     if (operation == null) {
-      operation = new FixValue(numberPadController.getNumber());
+      operation = new FixValue(Double.parseDouble(numberPadModell.getNumber()));
     }
     return operation;
   }
 
-  private void operatorPressed(Operator operator) {
-    lastOperator = operator;
+  private void operatorChanged(Operator oldValue, Operator newValue) {
+
   }
 }

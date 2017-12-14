@@ -7,10 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 public class OperationPadControll extends VBox {
-  private OperationPadController controller;
+  private OperationPadModel model;
 
   public OperationPadControll() {
-    controller = new OperationPadController();
+    OperationPadController controller = new OperationPadController(model);
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("OperationPadView.fxml"));
       loader.setRoot(this);
@@ -21,7 +21,8 @@ public class OperationPadControll extends VBox {
     }
   }
 
-  public OperationPadController getController() {
-    return controller;
+  public OperationPadModel getModel() {
+    return model;
   }
+
 }
