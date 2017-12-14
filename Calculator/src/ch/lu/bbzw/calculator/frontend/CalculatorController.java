@@ -18,11 +18,14 @@ public class CalculatorController {
   private OperationPadModel operationPadModel;
   private NumberPadModel numberPadModell;
   private Operation operation;
+  private CalculatorModel model;
 
+  @FXML
   public void initialize() {
     numberPadModell = numberPad.getModel();
     operationPadModel = operationPad.getModel();
     operationPadModel.addOperatorChangeListener(this::operatorChanged);
+    numberPadModell.addNumberChangeListeners((oldValue, newValue) -> model.addToNumberHistory(Double.parseDouble(oldValue)));
   }
 
   public Operation getLastOperation() {
@@ -33,6 +36,5 @@ public class CalculatorController {
   }
 
   private void operatorChanged(Operator oldValue, Operator newValue) {
-
   }
 }

@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 public class NumberPadControll extends VBox {
-  private NumberPadModel model;
+  private NumberPadModel model = new NumberPadModel();
 
   public NumberPadControll() {
     NumberPadController controller = new NumberPadController(model);

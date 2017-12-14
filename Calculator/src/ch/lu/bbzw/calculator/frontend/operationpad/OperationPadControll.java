@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 public class OperationPadControll extends VBox {
-  private OperationPadModel model;
+  private OperationPadModel model = new OperationPadModel();
 
   public OperationPadControll() {
     OperationPadController controller = new OperationPadController(model);

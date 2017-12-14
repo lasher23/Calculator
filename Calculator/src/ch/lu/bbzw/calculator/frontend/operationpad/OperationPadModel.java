@@ -29,7 +29,7 @@ public class OperationPadModel {
   }
 
   public enum Operator {
-    ADDITION, MINUS
+    ADDITION, SUBSTRACTION
   }
 
   public interface OperatorChangeListener {
