@@ -1,0 +1,15 @@
+// Apply the java-library plugin to add support for Java Library
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile project(':CalculatorBackend')
+    testImplementation 'junit:junit:4.12'   
+    
+}
+
+sourceCompatibility = 1.8

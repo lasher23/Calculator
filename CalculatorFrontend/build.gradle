@@ -1,0 +1,37 @@
+
+apply plugin: 'java-library'
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+dependencies {
+	compile project(':CalculatorAPI')
+    testImplementation 'junit:junit:4.12'
+}
+
+jar{
+	baseName='ch.lu.bbzw.calculator'
+	version = '0.1'
+	from('src/main/java'){
+		include '**/*.fxml'
+		include '**/*.css'
+	}
+	manifest {
+    	attributes(
+      		'Main-Class': 'ch.lu.bbzw.calculator.frontend.Main'
+      	)
+ 	}
+}
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Main-Class': 'ch.lu.bbzw.calculator.frontend.Main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+sourceCompatibility = 1.8
