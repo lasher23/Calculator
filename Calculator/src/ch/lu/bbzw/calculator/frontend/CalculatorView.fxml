@@ -3,9 +3,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import ch.lu.bbzw.calculator.frontend.numberpad.NumberPadControll?>
 <?import ch.lu.bbzw.calculator.frontend.operationpad.OperationPadControll?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<NumberPadControll fx:id="numberPad"></NumberPadControll>
-	<OperationPadControll fx:id="opoerationPad"></OperationPadControll>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.lu.bbzw.calculator.frontend.CalculatorController">
+	<TextField fx:id="outputField" editable="false"></TextField>
+  <NumberPadControll fx:id="numberPad"></NumberPadControll>
+	<OperationPadControll fx:id="operationPad"></OperationPadControll>
+  <Button onAction="#onEqual">=</Button>
 </VBox>
 

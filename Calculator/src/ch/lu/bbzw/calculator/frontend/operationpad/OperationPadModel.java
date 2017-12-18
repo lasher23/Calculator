@@ -29,7 +29,16 @@ public class OperationPadModel {
   }
 
   public enum Operator {
-    ADDITION, SUBSTRACTION
+    ADDITION("+"), SUBSTRACTION("-");
+    private String operatorSign;
+
+    Operator(String operatorSign) {
+      this.operatorSign = operatorSign;
+    }
+
+    public String getOperatorSign() {
+      return operatorSign;
+    }
   }
 
   public interface OperatorChangeListener {

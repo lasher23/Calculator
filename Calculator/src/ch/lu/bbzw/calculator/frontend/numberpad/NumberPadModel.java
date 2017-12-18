@@ -23,6 +23,10 @@ public class NumberPadModel {
     numberChangeListeners.add(numberChangeListener);
   }
 
+  public void reset() {
+    number = "";
+  }
+
   private void fireNumberChangeListeners(String oldValue) {
     for (NumberChangeListener numberChangeListener : numberChangeListeners) {
       numberChangeListener.onNumberChange(oldValue, number);
