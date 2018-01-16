@@ -36,10 +36,20 @@ public class OperationBuilder {
 			String substring = operationString.substring(2, operationString.lastIndexOf(")"));
 			leftPart = new Sin(builder(substring));
 			operationString = operationString.replace("s(" + substring + ")", String.valueOf(leftPart.getResult()));
+			try {
+				//	 returns value if operation only contains number
+				return new FixValue(Double.parseDouble(operationString));
+			}catch (NumberFormatException e) {
+			}
 		} else if (operationString.startsWith("c")) {
 			String substring = operationString.substring(2, operationString.lastIndexOf(")"));
 			leftPart = new Cos(builder(substring));
 			operationString = operationString.replace("c(" + substring + ")", String.valueOf(leftPart.getResult()));
+			try {
+				//	 returns value if operation only contains number
+				return new FixValue(Double.parseDouble(operationString));
+			}catch (NumberFormatException e) {
+			}
 		}
 		double value = Double.parseDouble(operations[0]);
 		leftPart = new FixValue(value);
